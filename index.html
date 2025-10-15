@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográfico: Análise de Mobilidade Urbana em São Paulo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-arrow::after {
+            content: '→';
+            font-size: 2rem;
+            line-height: 1;
+            color: #ee9b00;
+            margin: 0 1rem;
+        }
+        .flow-item {
+            text-align: center;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- 
+    Chosen Color Palette: Brilliant Blues with accent
+    Primary: #005f73 (Dark Teal)
+    Secondary: #0a9396 (Medium Teal)
+    Highlight: #ee9b00 (Gold)
+    Background/Text: #f8f9fa, #e9d8a6 (Cream), #333333
+    -->
+
+    <!-- 
+    Infographic Narrative Plan:
+    1.  Hook/Challenge: Present the immense scale of São Paulo's mobility challenge with large, impactful numbers.
+    2.  The Solution: Briefly introduce Big Data (PySpark) as the analytical tool, showing a simple process flow from data to insight.
+    3.  Key Findings: The core data section, visualizing the two main discoveries: the dominance of public transport and the clear daily rush hours.
+    4.  The Future is Real-Time: Explain the paradigm shift from reactive to proactive management using streaming data.
+    5.  Strategic Roadmap: Present the key recommendations as a clear, actionable plan.
+    6.  The Road Ahead: Conclude by outlining the next steps to evolve the project.
+    -->
+
+    <!-- 
+    Visualization Choices:
+    -   Key Metric (Millions of Trips): Single Big Number. Goal: Inform. Justification: Maximum impact for a single stat. Method: HTML/Tailwind.
+    -   Data Process Flow: Flow Chart. Goal: Organize. Justification: Clearly illustrates the data pipeline. Method: HTML/CSS with Tailwind.
+    -   Modal Split (67% Public Transport): Donut Chart. Goal: Compare. Justification: Ideal for showing a simple part-to-whole composition. Library: Chart.js (Canvas).
+    -   Daily Travel Pattern (Rush Hour): Area Chart. Goal: Change. Justification: Effectively shows volume trends over time, highlighting peaks. Library: Chart.js (Canvas).
+    -   Real-time Streaming Concept: Flow Chart. Goal: Organize. Justification: Simplifies and explains a technical concept visually. Method: HTML/CSS with Tailwind.
+    -   Recommendations/Next Steps: Ordered Lists. Goal: Organize. Justification: Presents actionable steps in a clear, digestible format. Method: HTML/Tailwind.
+    
+    Confirmation: NEITHER Mermaid JS NOR SVG were used in this file. All visualizations are rendered using Canvas (via Chart.js) or structured HTML/CSS with Tailwind.
+    -->
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2" style="color: #005f73;">Análise de Mobilidade Urbana em São Paulo</h1>
+            <p class="text-lg md:text-xl text-gray-600">Insights de Big Data para uma Cidade Mais Inteligente</p>
+        </header>
+
+        <section id="challenge" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8" style="color: #005f73;">O Desafio: Uma Metrópole em Movimento</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+                    <p class="text-5xl font-black" style="color: #ee9b00;">Milhões</p>
+                    <p class="text-xl font-semibold mt-2 text-gray-700">de deslocamentos diários</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+                    <p class="text-5xl font-black" style="color: #ee9b00;">Qualidade</p>
+                    <p class="text-xl font-semibold mt-2 text-gray-700">de vida e economia impactadas</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+                    <p class="text-5xl font-black" style="color: #ee9b00;">Dados</p>
+                    <p class="text-xl font-semibold mt-2 text-gray-700">são a chave para a solução</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="mb-16 bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-3xl font-bold text-center mb-2" style="color: #005f73;">Nossa Solução: Big Data Analytics</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Utilizamos a tecnologia PySpark para processar e analisar grandes volumes de dados de transporte, transformando informação bruta em inteligência acionável para a gestão da cidade.</p>
+            <div class="flex flex-col md:flex-row items-center justify-center">
+                <div class="flow-item p-4 bg-gray-50 rounded-lg border m-2">
+                    <div class="text-5xl mb-2">📄</div>
+                    <h3 class="font-bold text-lg" style="color: #0a9396;">Dados Brutos</h3>
+                    <p class="text-sm">Registros de viagens</p>
+                </div>
+                <div class="flow-arrow hidden md:flex items-center"></div>
+                <div class="flow-item p-4 bg-gray-50 rounded-lg border m-2">
+                    <div class="text-5xl mb-2">⚙️</div>
+                    <h3 class="font-bold text-lg" style="color: #0a9396;">Processamento PySpark</h3>
+                    <p class="text-sm">Limpeza e Análise</p>
+                </div>
+                <div class="flow-arrow hidden md:flex items-center"></div>
+                <div class="flow-item p-4 bg-gray-50 rounded-lg border m-2">
+                    <div class="text-5xl mb-2">💡</div>
+                    <h3 class="font-bold text-lg" style="color: #0a9396;">Insights Acionáveis</h3>
+                    <p class="text-sm">Padrões e Tendências</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="findings" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8" style="color: #005f73;">Principais Achados: Como São Paulo se Move</h2>
+             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">A análise dos dados revelou padrões claros e consistentes sobre como os cidadãos utilizam os sistemas de transporte, fornecendo uma base sólida para a tomada de decisões estratégicas.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-center mb-4" style="color: #0a9396;">Achado #1: O Protagonismo do Transporte Público</h3>
+                    <div class="chart-container">
+                        <canvas id="modalSplitChart"></canvas>
+                    </div>
+                    <p class="text-center mt-4 text-gray-600">Ônibus e metrô representam a grande maioria das viagens, consolidando o transporte público como a espinha dorsal da mobilidade paulistana. A eficiência deste sistema é o fator mais crítico para o fluxo da cidade.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-center mb-4" style="color: #0a9396;">Achado #2: O Pulso da Cidade - A "Hora do Rush"</h3>
+                    <div class="chart-container">
+                        <canvas id="rushHourChart"></canvas>
+                    </div>
+                    <p class="text-center mt-4 text-gray-600">A demanda por transporte atinge seu pico em dois horários claros: pela manhã, no trajeto para o trabalho, e no final da tarde. Ações focadas nestes períodos têm o maior potencial de impacto positivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="streaming" class="mb-16 bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-3xl font-bold text-center mb-2" style="color: #005f73;">O Futuro é em Tempo Real</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Além de analisar dados históricos, nossa plataforma permite o monitoramento contínuo dos fluxos de transporte. Isso possibilita uma mudança de uma gestão reativa para uma gestão proativa e inteligente.</p>
+             <div class="flex flex-col md:flex-row items-center justify-center">
+                <div class="flow-item p-4 m-2">
+                     <div class="text-5xl mb-2">📡</div>
+                    <h3 class="font-bold text-lg" style="color: #0a9396;">Fluxo de Dados</h3>
+                    <p class="text-sm">Eventos em tempo real</p>
+                </div>
+                 <div class="flow-arrow hidden md:flex items-center"></div>
+                <div class="flow-item p-4 m-2">
+                     <div class="text-5xl mb-2">📊</div>
+                    <h3 class="font-bold text-lg" style="color: #0a9396;">Análise Contínua</h3>
+                    <p class="text-sm">Detectando anomalias</p>
+                </div>
+                 <div class="flow-arrow hidden md:flex items-center"></div>
+                <div class="flow-item p-4 m-2">
+                     <div class="text-5xl mb-2">🔔</div>
+                    <h3 class="font-bold text-lg" style="color: #0a9396;">Alerta Imediato</h3>
+                    <p class="text-sm">Operadores são notificados</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="recommendations" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8" style="color: #005f73;">Recomendações Estratégicas</h2>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="text-4xl mb-3" style="color: #ee9b00;">1.</div>
+                    <h3 class="font-bold text-lg mb-2">Reforçar a Frota nos Picos</h3>
+                    <p class="text-gray-600">Aumentar a frequência de ônibus e metrôs das 7-9h e 17-19h nas rotas mais críticas para reduzir a lotação.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="text-4xl mb-3" style="color: #ee9b00;">2.</div>
+                    <h3 class="font-bold text-lg mb-2">Integrar Modais</h3>
+                    <p class="text-gray-600">Criar melhores conexões entre terminais, estações e pontos de apps para facilitar a jornada do usuário.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="text-4xl mb-3" style="color: #ee9b00;">3.</div>
+                    <h3 class="font-bold text-lg mb-2">Planejamento Preditivo</h3>
+                    <p class="text-gray-600">Usar dados históricos para prever a demanda futura e planejar a alocação de recursos com antecedência.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 pt-8 border-t">
+            <p>Análise de Dados e Analytics | Outubro de 2025</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const tooltipTitleCallback = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            const processLabels = (labels) => {
+                const maxLen = 16;
+                return labels.map(label => {
+                    if (label.length <= maxLen) {
+                        return label;
+                    }
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = '';
+                    words.forEach(word => {
+                        if ((currentLine + ' ' + word).trim().length > maxLen) {
+                            lines.push(currentLine.trim());
+                            currentLine = word;
+                        } else {
+                            currentLine = (currentLine + ' ' + word).trim();
+                        }
+                    });
+                    if (currentLine) {
+                        lines.push(currentLine.trim());
+                    }
+                    return lines;
+                });
+            };
+
+            function createModalSplitChart() {
+                const ctx = document.getElementById('modalSplitChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Transporte Público (Ônibus & Metrô)', 'Transporte por Aplicativo'],
+                        datasets: [{
+                            label: '% de Viagens',
+                            data: [67, 33],
+                            backgroundColor: [
+                                '#0a9396',
+                                '#e9d8a6'
+                            ],
+                            borderColor: [
+                                '#ffffff',
+                                '#ffffff'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            ...tooltipTitleCallback.plugins,
+                            legend: {
+                                position: 'bottom',
+                            },
+                            title: {
+                                display: false
+                            }
+                        },
+                        cutout: '60%'
+                    }
+                });
+            }
+
+            function createRushHourChart() {
+                const ctx = document.getElementById('rushHourChart').getContext('2d');
+                const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+                gradient.addColorStop(0, 'rgba(10, 147, 150, 0.6)');
+                gradient.addColorStop(1, 'rgba(10, 147, 150, 0.1)');
+
+                const labels = Array.from({ length: 24 }, (_, i) => `${String(i).padStart(2, '0')}:00`);
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Volume de Viagens',
+                            data: [5, 4, 3, 4, 8, 25, 60, 85, 90, 75, 50, 45, 40, 42, 48, 55, 78, 95, 88, 60, 40, 25, 15, 10],
+                            backgroundColor: gradient,
+                            borderColor: '#0a9396',
+                            pointBackgroundColor: '#ee9b00',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: { display: true, text: 'Volume Relativo de Viagens' }
+                            },
+                            x: {
+                                title: { display: true, text: 'Hora do Dia' }
+                            }
+                        },
+                        plugins: {
+                           ...tooltipTitleCallback.plugins,
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+
+            createModalSplitChart();
+            createRushHourChart();
+        });
+    </script>
+</body>
+</html>
